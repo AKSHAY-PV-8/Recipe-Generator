@@ -4,6 +4,8 @@ import { PillsList } from "./PillsList";
 import ArrowIcon from "../../assets/ArrowIcon";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+
+
 export function Card(
   {
     recipe,
@@ -11,20 +13,20 @@ export function Card(
   }
 ) {
 
-  
   const favorites = JSON.parse(localStorage.getItem("recipe"));
   const [selected, setSelected] = useState(favorites);
 
   const navigate = useNavigate();
 
 
-  function handleAddFavorite(e, selectedRecipe) {
-    e.stopPropagation();
-    let localStoredRecipes = JSON.parse(localStorage.getItem("recipe")) || [];
+  function handleAddFavorite(selectedRecipe) {
 
-    if (localStoredRecipes.some(item => item?.strMeal === selectedRecipe?.strMeal)) {
-      const recipesAfterRemoved = localStoredRecipes?.filter(item => item?.strMeal !== selectedRecipe?.strMeal)
-      localStoredRecipes = recipesAfterRemoved;
+    let savedRecipes = JSON.parse(localStorage.getItem("recipe")) || [];
+
+    if (savedRecipes.some(item => item?.strMeal === selectedRecipe?.strMeal)) {
+      const updatedRecipes = savedRecipes?.filter(item => item?.strMeal !== selectedRecipe?.strMeal);
+      savedRecipes = updatedRecipes;
+
       toast(`${selectedRecipe?.strMeal} Removed From Favorites`,
         {
           icon: '💨',
@@ -36,7 +38,7 @@ export function Card(
         }
       );
     } else {
-      localStoredRecipes.push(selectedRecipe);
+      savedRecipes.push(selectedRecipe);
       toast(`${selectedRecipe?.strMeal} Successfully added!`,
         {
           icon: '👏',
@@ -49,9 +51,9 @@ export function Card(
       );
     }
 
-    onSelected?.(localStoredRecipes);
-    setSelected(localStoredRecipes);
-    localStorage.setItem("recipe", JSON.stringify(localStoredRecipes));
+    onSelected?.(savedRecipes);
+    setSelected(savedRecipes);
+    localStorage.setItem("recipe", JSON.stringify(savedRecipes));
 
   }
 
@@ -62,7 +64,7 @@ export function Card(
 
       <div className="">
         <div className="absolute right-3 top-3 shadow-2xl z-1 hover:scale-155"
-          onClick={(e) => handleAddFavorite(e, recipe)}>
+          onClick={() => handleAddFavorite(recipe)}>
           <HeartIcon color={selected?.some(favoriteItem => favoriteItem?.strMeal === recipe?.strMeal) ? "red" : "black"} />
         </div>
         

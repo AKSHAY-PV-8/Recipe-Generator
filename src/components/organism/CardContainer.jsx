@@ -39,7 +39,6 @@ const CardContainer = (
                 </div>
                 <Footer />
             </div>
-
         </article>
     )
 }

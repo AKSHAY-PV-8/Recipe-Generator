@@ -7,7 +7,7 @@ import Footer from '../components/organism/Footer';
 
 const HomePage = () => {
 
-  const [recipes, setRecipes] = useState([]);
+  const [visibleRecipes, setvisibleRecipes] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,8 +21,8 @@ const HomePage = () => {
     (async () => {
       setIsLoading(true);
 
-      const recipes = await fetchRecipes(searchDebounce);
-      recipes != undefined ? setRecipes(recipes) : "";
+      const fetchedRecipes = await fetchRecipes(searchDebounce);
+      fetchedRecipes != undefined ? setvisibleRecipes(fetchedRecipes) : "";
 
       setIsLoading(false);
     })()
@@ -32,7 +32,7 @@ const HomePage = () => {
   return (
     <main>
       <HeroSection onSearch={handleOnSearch} />
-      <CardContainer isLoading={isLoading} recipes={recipes} />
+      <CardContainer isLoading={isLoading} recipes={visibleRecipes} />
 
     </main>
   )
