@@ -28,6 +28,7 @@ const HomePage = () => {
     })()
   },[searchDebounce]);
 
+
   return (
     <main>
       <HeroSection onSearch={handleOnSearch} />

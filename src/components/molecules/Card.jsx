@@ -3,7 +3,7 @@ import HeartIcon from "../../assets/HeartIcon";
 import { PillsList } from "./PillsList";
 import ArrowIcon from "../../assets/ArrowIcon";
 import { useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 export function Card(
   {
     recipe,
@@ -65,10 +65,7 @@ export function Card(
           onClick={(e) => handleAddFavorite(e, recipe)}>
           <HeartIcon color={selected?.some(favoriteItem => favoriteItem?.strMeal === recipe?.strMeal) ? "red" : "black"} />
         </div>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
+        
       </div>
 
       <div className="relative">

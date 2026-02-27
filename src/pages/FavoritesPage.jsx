@@ -5,6 +5,7 @@ const FavoritesPage = () => {
 
   const localStoredFavoriteRecipes = JSON.parse(localStorage.getItem("recipe"));
   const [favoriteRecipes, setFavoriteRecipes] = useState(localStoredFavoriteRecipes);
+  
 
   function handleOnClickFavorites(recipes) {
     setFavoriteRecipes(recipes);

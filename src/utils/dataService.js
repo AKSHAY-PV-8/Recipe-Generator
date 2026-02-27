@@ -3,7 +3,11 @@ import { axiosInstance } from "./axios";
 export async function fetchRecipes(search){
     try {
         const response =  await axiosInstance.get(`/search.php?s=${search}`);
-        return response.data.meals
+        if(response.data.meals == null) {
+            return []
+        }else{
+            return response?.data?.meals
+        }
     }
     catch (e) {
         console.log(e);

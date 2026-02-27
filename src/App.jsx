@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router"
 import HomePage from "./pages/HomePage"
 import RecipeDetailPage from "./pages/RecipeDetailPage"
 import FavoritesPage from "./pages/FavoritesPage"
+import { Toaster } from "react-hot-toast"
 
 function App() {
 
@@ -10,6 +11,10 @@ function App() {
 
     <div>
       <BrowserRouter>
+      <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
         <NavBar/>
         <Routes>
           <Route path="/" element={<HomePage />} />
