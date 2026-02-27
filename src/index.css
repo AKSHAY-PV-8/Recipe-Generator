@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+.toast-message{
+    border-radius: 30px;
+    background-color: white;
+    color: orange;
+}
