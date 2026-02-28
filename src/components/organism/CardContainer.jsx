@@ -6,10 +6,13 @@ const CardContainer = (
     {
         isLoading,
         recipes = [],
+        isError
     }
 
 
 ) => {
+
+    
 
     if (isLoading) return (
         <div className='flex justify-center mt-10'>
@@ -27,6 +30,7 @@ const CardContainer = (
         </div>
     );
 
+    if(isError ) return <p className='text-4xl font-serif font-bold flex justify-center my-20'>Network Error</p>
     if (recipes.length === 0) return <p className='text-4xl font-serif font-bold flex justify-center my-20'>Result not found</p>
 
     return (

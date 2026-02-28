@@ -10,8 +10,8 @@ export async function fetchRecipes(search){
         }
     }
     catch (e) {
-        console.log(e);
-        return e.message;
+        console.log(e.message);
+        return Error;
     }
 }
 
