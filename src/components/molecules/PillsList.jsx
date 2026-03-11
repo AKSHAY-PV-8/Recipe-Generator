@@ -26,7 +26,7 @@ export function PillsList({
         ))}
 
         {ingredients.length - limit != 0?
-          <div className="m-1 bg-[#fdf6ee] border-[#e8ddd2] border rounded-2xl text-[#cd5c43] text-center text-[13px] shadow-2xl font-medium">
+          <div className="m-1 bg-[#fdf6ee] border-[#e8ddd2] border rounded-2xl text-[#cd5c43] text-center text-[13px] shadow-2xl font-medium px-1">
             +{ingredients.length - limit} More
           </div> : ""}
 
