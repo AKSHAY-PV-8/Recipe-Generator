@@ -23,9 +23,10 @@ const NavBar = () => {
 
             <div className="flex px-3  bg-black text-white  m-4 
             rounded-2xl justify-between items-center hover:bg-[#c84b2f] hover:scale-105 cursor-pointer
-            lg:mr-30 lg:px-5">
+            lg:mr-30 lg:px-5"
+            onClick={handleNavigateToFavorites}>
                 <img src={heartIcon} alt="" className="w-4 px-1" />
-                <button className="text-[12px] py-2 px-2 cursor-pointer" onClick={handleNavigateToFavorites}>Favorites</button>
+                <button className="text-[12px] py-2 px-2 cursor-pointer" >Favorites</button>
             </div>
         </nav>
     )
