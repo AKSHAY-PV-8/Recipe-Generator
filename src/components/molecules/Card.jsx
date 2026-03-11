@@ -29,7 +29,6 @@ export function Card(
 
       toast(`${selectedRecipe?.strMeal} Removed From Favorites`,
         {
-          icon: '💨',
           style: {
             borderRadius: '40px',
             background: 'black',
@@ -41,7 +40,6 @@ export function Card(
       savedRecipes.push(selectedRecipe);
       toast(`${selectedRecipe?.strMeal} Successfully added!`,
         {
-          icon: '👏',
           style: {
             borderRadius: '40px',
             background: 'black',
